@@ -66,7 +66,7 @@
     <div class="container-fluid">
       <div class="row justify-content-center">
         <div class="col-md-12">
-          <h3 class="text-center text-dark">Wow</h3>
+          <h3 class="text-center text-dark">CRUD using PHP</h3>
         </div>
       </div>
       <div class="row">
