@@ -9,70 +9,68 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
-    <!-- Latest compiled and minified CSS -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
-
-    <!-- jQuery library -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <nav class="navbar navbar-inverse">
+
+    <nav class="navbar navbar-expand bg-dark navbar-dark">
       <div class="container-fluid">
         <div class="navbar-header">
+          
+
+          <ul class="navbar-nav navbar-header">
           <a class="navbar-brand" href="#">CRUD</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav">
-            <li><a href="index.php">Home</a></li>
-            <li><a href="#">Features</a></li>
-            <li><a href="#">Pricing</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
           </ul>
 
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <form class="navbar-form navbar-left" action="/action.php">
-                <div class="form-group">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Search"
-                  />
-                </div>
-                <button type="submit" class="btn btn-default">Search</button>
-              </form>
-            </li>
+        </div>
 
+          <ul class="nav navbar-right">
             <li>
-              <a href="#"
-                ><span class="glyphicon glyphicon-user"></span> Sign Up</a
-              >
-            </li>
-            <li>
-              <a href="#"
-                ><span class="glyphicon glyphicon-log-in"></span> Login</a
-              >
+            <form class="form-inline" action="/action_page.php">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search">
+              <button class="btn btn-success" type="submit">Search</button>
+            </form>
             </li>
           </ul>
         </div>
       </div>
     </nav>
+
     <div class="container-fluid">
-      <div class="row justify-content-center">
+      <div class="row justify-content-center mt-3">
         <div class="col-md-12">
           <h3 class="text-center text-dark">CRUD using PHP</h3>
         </div>
       </div>
+
+      <!-- -->
       <div class="row">
+        <!-- left --> 
         <div class="col-md-4">
+
           <h3 class="text-center text-info">Add Record</h3>
 
+        
+            <?php 
+                if (isset($_SESSION['response'])){
+              ?>
+            <div class="alert alert-<?= $_SESSION['res_type']; ?>  alert-dismissible fade show">
+              <button type="button" class="close" data-dismiss="alert">
+                &times;
+              </button>
+              <?= $_SESSION['response']; ?>
+                </div>
+            <?php } 
+            unset($_SESSION['response']); 
+              ?>
+            
           <form action="action.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
               <input
@@ -117,7 +115,7 @@
               />
             </div>
           </form>
-        </div>
+     </div>
 
         <div class="col-md-8">
           <h3 class="text-center text-info">Records</h3>
@@ -152,5 +150,7 @@
         </div>
       </div>
     </div>
+    <script src="main.js"></script>
   </body>
+ 
 </html>

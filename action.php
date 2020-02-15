@@ -1,5 +1,6 @@
 <?php
 
+    session_start();
     include 'config.php';
 
     if(isset($_POST['add'])) {
@@ -19,5 +20,8 @@
         move_uploaded_file($_FILES['image']['tmp_name'], $upload);
 
         header('location: index.php');
+
+        $_SESSION['response']="Record Added";
+        $_SESSION['res_type']="success";
     }
 ?>
